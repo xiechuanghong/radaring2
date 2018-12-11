@@ -1,0 +1,9 @@
+<!--pages/paysuccess/paysuccess.wxml-->
+
+<view class='paysuccess-body'>
+  <view>
+    <image class='paysuccess-icon' src='/img/radio_selected.png'></image>
+  </view>
+  <view class='paysuccess-text'>{{text}}</view>
+ 
+</view>

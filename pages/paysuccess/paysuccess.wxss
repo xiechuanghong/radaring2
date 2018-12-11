@@ -1,0 +1,18 @@
+/* pages/paysuccess/paysuccess.wxss */
+.paysuccess-body{
+  background-color: #F2F2F2;
+  height: 100%;
+  text-align: center;
+  padding-top: 120rpx;
+}
+
+.paysuccess-body .paysuccess-icon{
+ 
+  width: 128rpx;
+  height: 128rpx;
+  margin: auto;
+}
+
+.paysuccess-text{
+   margin-top: 16rpx;
+}

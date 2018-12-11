@@ -1,0 +1,68 @@
+/* pages/editvideo/editvideo.wxss */
+
+page {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.detail {
+  padding: 56rpx;
+}
+
+.swiper-video {
+  height: 360rpx;
+  background: #f2f2f2;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-video image {
+  width: 130rpx;
+  height: 136rpx;
+}
+
+video {
+  width: 100%;
+  height: 360rpx;
+}
+
+.success {
+  position: fixed;
+  bottom: 16rpx;
+  width: 100%;
+}
+
+.success.active {
+  opacity: 0.4;
+}
+
+.success .text {
+  padding: 14rpx 0;
+  margin: 0 40rpx;
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  background: #0084ff;
+  border-radius: 47rpx;
+}
+
+.del {
+  margin-top: 32rpx;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.del text {
+  background: #f8f8f8;
+  border: 2rpx solid rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+  width: 160rpx;
+  height: 64rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  color: #5f677a;
+}

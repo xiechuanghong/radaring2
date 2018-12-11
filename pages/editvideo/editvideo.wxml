@@ -1,0 +1,14 @@
+<!--pages/editvideo/editvideo.wxml-->
+<view class='detail'>
+  <view wx:if="{{!cardDetail.Video}}" class='swiper-video' bindtap='onSwiperVideo'>
+    <image src='/img/img_addvideo_l_blue.png'></image>
+    <!-- <input name="Avatar" value="{{uploadAvatar.FileUrls[0]}}" hidden='{{true}}'></input> -->
+  </view>
+  <video wx:if="{{cardDetail.Video}}" class='video' src='{{cardDetail.Video}}'></video>
+  <view class='del' wx:if="{{cardDetail.Video}}" bindtap='onDel'>
+    <text>删除视频</text>
+  </view>
+</view>
+<view class='success' bindtap='onChangeVideo'>
+  <view class='text'>完成</view>
+</view>

@@ -1,0 +1,3 @@
+<!--pages/video/video.wxml-->
+<video class='video' wx:if="{{cardDetail.Video == ''}}" autoplay="true" poster="http://image.dtoao.com/DefaultVideo.mp4?vframe/jpg/offset/1" src='http://image.dtoao.com/DefaultVideo.mp4'></video>
+<video class='video' wx:if="{{cardDetail.Video}}" autoplay="true" poster="{{cardDetail.VideoThumbnail}}" src='{{cardDetail.Video}}'></video>

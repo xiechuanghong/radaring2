@@ -1,0 +1,263 @@
+<view class="cont">
+  <view class='card' style='display:none;'>
+    <view class='card-info {{State == "Success" ? "active":""}}'>
+
+      <view class='form'>
+        <form bindsubmit="formSubmit" report-submit="true">
+          <button formType="submit" class='btn'>
+            <view class="vv">
+              <form bindsubmit="formSubmit" report-submit="true">
+                <button formType="submit" class='btn'>
+                  <view class="vv">
+                    <form bindsubmit="formSubmit" report-submit="true">
+                      <button formType="submit" class='btn'>
+                        <view class="vv">
+                          <form bindsubmit="formSubmit" report-submit="true">
+                            <button formType="submit" class='btn'>
+                              <view class="vv">
+                                <form bindsubmit="formSubmit" report-submit="true">
+                                  <button formType="submit" class='btn'>
+                                    <view class="vv">
+                                      剩余推送 {{cardDetail.NotifyCount}}
+                                    </view>
+                                  </button>
+                                </form>
+                              </view>
+                            </button>
+                          </form>
+                        </view>
+                      </button>
+                    </form>
+                  </view>
+                </button>
+              </form>
+            </view>
+          </button>
+        </form>
+        <!-- <form name='pushMsgFm' report-submit='true' bindsubmit='getFormID'>
+        </form> -->
+        <!-- 
+        <button form-type="submit">
+        </button> -->
+      </view>
+
+      <view class='img-box'>
+        <image class='avatar' src='{{cardDetail.Avatar || userInfo.Avatar}}'></image>
+        <image class='grade' src='/img/ic_vip_avatar_22.png' wx:if="{{cardDetail.Type>0}}"></image>
+      </view>
+
+      <view class='sex-or-address' wx:if="{{State == 'Success'}}">
+        <view class='sex {{cardDetail.Gender == 1?"active":""}}'>
+          <image wx:if="{{cardDetail.Gender == 1}}" src='/img/ic_gender_male_white_10.png'></image>
+          <image wx:if="{{cardDetail.Gender == 2}}" src='/img/ic_gender_remale_white_10.png'></image>
+          <text>{{cardDetail.Gender == 0 ? '?':''}} {{cardDetail.Age || 18}}</text>
+        </view>
+        <view class='address'>{{cardDetail.City || '火星'}}</view>
+      </view>
+
+      <navigator url='/pages/basicdata/basicdata?PCardID={{cardDetail.PCardID}}' hover-class="none" wx:if="{{State == 'Success'}}">
+        <view class='edit'>
+          <image src='/img/ic_edit_oval_20.png'></image>
+          <text>编辑</text>
+        </view>
+      </navigator>
+
+      <view class='user-info' wx:if="{{State == 'Success'}}">
+        <view class='user-name'>{{cardDetail.Name||userInfo.NickName}}</view>
+        <view class='user-position'>
+          <text class='position'>{{cardDetail.Position || '无业游民'}}</text>
+          <text class='dian'></text>
+          <text class='active'>{{cardDetail.Industry || '其他'}}</text>
+        </view>
+        <view class='user-remark'>{{cardDetail.Remark || '这个人很懒，什么都没填写。'}}</view>
+        <view class='card-btn'>
+          <navigator url='/pages/mycarddetail/mycarddetail' hover-class="none">
+            <button hover-class="none">查看我的名片</button>
+          </navigator>
+        </view>
+      </view>
+      <view class='user-info' wx:if="{{State != 'Success'}}">
+        <view class='user-name'>{{userInfo.NickName}}</view>
+        <view class='noth-card'>
+          <image style='width:168rpx;' mode='widthFix' src='/img/img_nodata_profile_business.png'></image>
+        </view>
+        <view class='card-btn'>
+          <navigator url='/pages/invite/invite?url=2' hover-class="none">
+            <button hover-class="none">立即创建我的名片</button>
+          </navigator>
+          <!-- <button open-type="getPhoneNumber" bindgetphonenumber="getUserPhone" hover-class="none">立即创建我的名片</button> -->
+        </view>
+      </view>
+      <view class='card-operating' wx:if="{{State == 'Success'}}">
+        <view class='card-operating-button' bindtap='onCollection'>
+          <!-- <image src='/img/ic_home_like_nor.png'></image> -->
+          <image src="{{cardDetail.HadLike? '/img/ic_home_like_pre.png':'/img/ic_home_like_nor.png'}}"></image>
+          <text>靠谱 {{cardDetail.LikeCount == 0 ? '': cardDetail.LikeCount}}</text>
+        </view>
+        <view class='card-operating-button'>
+          <button open-type='share' hover-class='none' style='margin:0;' class='card-operating-button'>
+            <image src='/img/ic_home_sharebusinesscard.png'></image>
+          </button>
+          <text>转发名片</text>
+        </view>
+        <navigator url='/pages/poster/poster?PCardID={{cardDetail.PCardID}}' hover-class="none">
+          <view class='card-operating-button'>
+            <image src='/img/ic_home_generateposter.png'></image>
+            <text>生成海报</text>
+          </view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+  <view class='my-card' style='display:block;'>
+    <view class='my-card-info'>
+      <navigator url='/pages/basicdata/basicdata?PCardID={{cardDetail.PCardID}}' wx:if="{{State == 'Success'}}" hover-class="none">
+        <view class='edit'>
+          <image src='/img/ic_edit_oval_white_20.png'></image>
+          <text>编辑</text>
+        </view>
+      </navigator>
+      <view class='my-card-info-box'>
+        <view class='my-img-box'>
+          <image class='avatar' src='{{cardDetail.Avatar || userInfo.Avatar}}'></image>
+          <image class='grade' src='/img/ic_vip_avatar_22.png' wx:if="{{cardDetail.Type>0}}"></image>
+        </view>
+        <view class='name-or-x'>
+          <view class='user-name'>
+            <text>{{cardDetail.Name||userInfo.NickName}}</text>
+          </view>
+          <view class='my-sex-or-address' wx:if="{{State == 'Success'}}">
+            <view class='sex {{cardDetail.Gender == 1?"active":""}}'>
+              <image wx:if="{{cardDetail.Gender == 1}}" src='/img/ic_gender_male_white_10.png'></image>
+              <image wx:if="{{cardDetail.Gender == 2}}" src='/img/ic_gender_remale_white_10.png'></image>
+              <text>{{cardDetail.Gender == 0 ? '?':''}} {{cardDetail.Age || 18}}</text>
+            </view>
+            <view class='address'>{{cardDetail.City || '火星'}}</view>
+          </view>
+        </view>
+      </view>
+      <view class='my-record'>
+        <view class='item'>
+          <view class='sum'>0</view>
+          <view class='text'>我的收藏</view>
+        </view>
+        <view class='item'>
+          <view class='sum'>0</view>
+          <view class='text'>我的足迹</view>
+        </view>
+        <view class='item'>
+          <view class='sum'>0</view>
+          <view class='text'>我的访客</view>
+        </view>
+      </view>
+    </view>
+    <view class='modul-box'>
+      <navigator url='/pages/invite/invite?url=2' hover-class="none" wx:if="{{State == 'PCardNoFound'}}">
+        <view class='modul-detail'>
+          <image mode='widthFix' class='cj-card' style='width:100%;' src='/img/img_freecreatcard_blue.png'></image>
+        </view>
+      </navigator>
+      <view class='modul-detail' wx:if="{{State == 'Success'}}">
+        <view class='card-operating'>
+          <navigator url='/pages/mycarddetail/mycarddetail' hover-class="none">
+            <view class='card-operating-button'>
+              <image src="/img/ic_home_mybusinesscard.png"></image>
+              <text>我的名片</text>
+            </view>
+          </navigator>
+          <view class='card-operating-button'>
+            <button open-type='share' hover-class='none' style='margin:0;' class='card-operating-button'>
+              <image src='/img/ic_home_sharebusinesscard.png'></image>
+            </button>
+            <text>转发名片</text>
+          </view>
+          <navigator url='/pages/poster/poster?PCardID={{cardDetail.PCardID}}' hover-class="none">
+            <view class='card-operating-button'>
+              <image src='/img/ic_home_generateposter.png'></image>
+              <text>生成海报</text>
+            </view>
+          </navigator>
+        </view>
+      </view>
+      <view class='modul-detail'>
+        <view class='card-order'>
+          <view class='title'>我的订单</view>
+          <view class='card-order-box'>
+            <view class='card-order-item' bindtap='onToast'>
+              <image src='/img/img_profile_myorder_00.png'></image>
+            </view>
+            <view class='card-order-item' bindtap='onToast'>
+              <image src='/img/img_profile_myorder_01.png'></image>
+            </view>
+            <view class='card-order-item' bindtap='onToast'>
+              <image src='/img/img_profile_myorder_02.png'></image>
+            </view>
+            <view class='card-order-item' bindtap='onToast'>
+              <image src='/img/img_profile_myorder_04.png'></image>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='modul-detail'>
+        <view class='card-business-box'>
+          <view class='card-business-item' bindtap='onToast'>
+            <image src='/img/img_profile_myteam.png'></image>
+          </view>
+          <view class='card-business-item' bindtap='onToast'>
+            <image src='/img/img_profile_myproduct.png'></image>
+          </view>
+          <view class='card-business-item' bindtap='onToast'>
+            <image src='/img/img_profile_mypaycard.png'></image>
+          </view>
+          <view class='card-business-item' bindtap='onToast'>
+            <image src='/img/img_profile_myairadar.png'></image>
+          </view>
+          <view class='card-business-item' bindtap='onToast'>
+            <image src='/img/img_profile_chat.png'></image>
+          </view>
+        </view>
+      </view>
+      <view class='modul-detail' wx:if="{{State == 'Success'}}">
+        <view class='card-add-sum'>
+          <view class='text'>
+            <text style='font-size: 12px;color: #2C364C;'>消息推送条数剩余：</text>
+            <text style='font-family: PingFangSC-Medium;font-size: 14px;color: #2C364C;'>{{cardDetail.NotifyCount}}</text>
+          </view>
+          <view class='add-form'>
+            <form bindsubmit="formSubmit" report-submit="true">
+              <button formType="submit" class='btn'>
+                <view class="vv">
+                  <form bindsubmit="formSubmit" report-submit="true">
+                    <button formType="submit" class='btn'>
+                      <view class="vv">
+                        <form bindsubmit="formSubmit" report-submit="true">
+                          <button formType="submit" class='btn'>
+                            <view class="vv">
+                              <form bindsubmit="formSubmit" report-submit="true">
+                                <button formType="submit" class='btn'>
+                                  <view class="vv">
+                                    <form bindsubmit="formSubmit" report-submit="true">
+                                      <button formType="submit" class='btn'>
+                                        <view class="vv">
+                                          点击增加
+                                        </view>
+                                      </button>
+                                    </form>
+                                  </view>
+                                </button>
+                              </form>
+                            </view>
+                          </button>
+                        </form>
+                      </view>
+                    </button>
+                  </form>
+                </view>
+              </button>
+            </form>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

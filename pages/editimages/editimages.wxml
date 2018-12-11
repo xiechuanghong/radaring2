@@ -1,0 +1,14 @@
+<view class='detail'>
+  <view class='img-arr'>
+    <view class='item' wx:for="{{cardDetail.Images}}" wx:key="">
+      <image class='img' src='{{item}}'></image>
+      <image class='del' src='/img/ic_closed_oval_gray_16.png' data-index="{{index}}" bindtap='onDelImg'></image>
+    </view>
+  </view>
+  <view class='swiper-images' bindtap='onSwiperimages'>
+    <image src='/img/img_addimg_blue.png'></image>
+  </view>
+</view>
+<view class='success' bindtap='onChangeimages'>
+  <view class='text'>完成</view>
+</view>

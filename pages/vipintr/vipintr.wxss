@@ -1,0 +1,32 @@
+/* pages/vipintr/vipintr.wxss */
+.cont image {
+  width: 100%;
+  display: flex;
+}
+
+.fixed {
+  position: fixed;
+  bottom: 0;
+}
+
+
+.auto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:#5826e5;
+}
+
+.become-vip {
+  width: 640rpx;
+  height: 90rpx;
+  margin: 48rpx 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 48rpx;
+  font-family: PingFangSC-Medium;
+  font-size: 18px;
+  color: #9f1e1e;
+  background-image: linear-gradient(-180deg, #fad961 0%, #ffb829 100%);
+}
